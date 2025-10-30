@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* Base typography + host layout */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout for content container */
+.container {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2.25rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 30px rgba(2, 6, 23, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto; /* allow the container to grow and push footer down */
+  /* center the content (hero) vertically and horizontally within the container */
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 920px;
+}
+
+/* Headings and paragraph styling */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.4px;
+  color: #071024;
+}
+
+p {
+  margin: 0.6em 0;
+  max-width: 760px;
+  text-align: center;
+  display: inline-block;
+  animation: moveLetters 9s infinite alternate;
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Animations for the hero (name + career) */
+.container h1 {
+  /* gradient text with clip */
+  background: linear-gradient(90deg, #00c4ff 0%, #7dd3fc 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  transform-origin: center;
+  /* play entry animation, then keep a slow floating motion */
+  animation: heroIn 760ms cubic-bezier(.2,.9,.2,1) both,
+             floatLong 6000ms ease-in-out 760ms infinite alternate;
+  text-shadow: 0 6px 20px rgba(3,7,18,0.12);
+}
+
+.container p {
+  animation: heroInText 900ms cubic-bezier(.2,.9,.2,1) both,
+             floatShort 5200ms ease-in-out 1100ms infinite alternate;
+  opacity: 0;
+  transform-origin: center;
+}
+
+@keyframes heroIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.995);
+    filter: blur(4px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.01);
+    filter: blur(0);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: none;
+  }
+}
+
+@keyframes heroInText {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: none;
+  }
+}
+
+/* continuous floating animations after the intro */
+@keyframes floatLong {
+  0% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-10px) translateZ(0); }
+  100% { transform: translateY(0) translateZ(0); }
+}
+
+@keyframes floatShort {
+  0% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-6px) translateZ(0); }
+  100% { transform: translateY(0) translateZ(0); }
+}
+
+/* 3D parallax + shimmer (more 'padre') */
+.hero {
+  position: relative;
+  display: inline-block;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  box-shadow: 0 12px 40px rgba(2,6,23,0.12);
+  --shine-x: 50%;
+  --shine-y: 50%;
+}
+
+.hero::before {
+  /* shimmer / moving highlight */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--shine-x) var(--shine-y), rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.06) 10%, rgba(255,255,255,0) 40%);
+  mix-blend-mode: screen;
+  transition: background-position 120ms linear;
+  border-radius: inherit;
+}
+
+.hero .shimmer-line {
+  position: absolute;
+  left: -40%;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-18deg);
+  animation: shimmer 2.8s linear infinite;
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+
+/* pause shimmer on hover for clarity */
+.hero:hover .shimmer-line { animation-play-state: paused; opacity: 0.95; }
+
+/* Keep the hero content centered */
+.hero h1, .hero p { transform-style: preserve-3d; }
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f1724; /* slightly darker for contrast */
+  padding: 1rem 2rem;
+  color: #fff;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #e6f7ff;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li a {
+  color: #cfeefc;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #7dd3fc;
+  transform: translateY(-2px);
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  background: #0f1724;
+  color: #e6eef7;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-top: auto; /* pushes footer to the bottom of the viewport when possible */
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* subtle responsive tweaks */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .navbar .nav-links {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+}
+
+@keyframes moveLetters {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-6px);
+    opacity: 0.98;
+  }
+}
