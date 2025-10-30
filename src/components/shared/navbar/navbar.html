@@ -1,50 +1,44 @@
-<nav class="bg-white shadow-md">
+<nav class="bg-gray-700 shadow-lg border-b-4 border-yellow-400">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
+    <div class="flex justify-between items-center h-20">
+      
       <!-- Logo -->
-      <div class="flex-shrink-0 flex items-center">
-        <a href="#" class="text-2xl font-bold text-blue-600">Los 6tasticos</a>
+      <div class="flex items-center space-x-3">
+        <img src="assets/icon.png" alt="Logo Los 6tásticos" class="h-12 w-12 rounded-full border-2 border-yellow-400">
+        <span class="text-2xl font-extrabold text-yellow-400 tracking-widest drop-shadow-[2px_2px_2px_rgba(0,0,0,0.8)]">
+          LOS 6TÁSTICOS
+        </span>
       </div>
 
-      <!-- Menú para pantallas grandes -->
-      <div class="hidden md:flex space-x-8 items-center">
-        <a routerLink="/xdelabra" class="text-gray-700 hover:text-blue-600"
+      <!-- Links -->
+   <div class="hidden md:flex space-x-8 items-center">
+        <a routerLink="/" class="text-white font-semibold hover:text-yellow-400 transition duration-300"
+          >Inicio</a
+        >
+        <a routerLink="/xdelabra" class="text-white font-semibold hover:text-yellow-400 transition duration-300"
           >Ximena</a
         >
-        <a routerLink="/yrodriguez" class="text-gray-700 hover:text-blue-600"
+        <a routerLink="/yrodriguez" class="text-white font-semibold hover:text-yellow-400 transition duration-300"
           >Yahir</a
         >
-        <a routerLink="/jsantiago" class="text-gray-700 hover:text-blue-600"
+        <a routerLink="/jsantiago" class="text-white font-semibold hover:text-yellow-400 transition duration-300"
           >Santiago</a
         >
-        <a routerLink="/miguel" class="text-gray-700 hover:text-blue-600"
+        <a routerLink="/miguel" class="text-white font-semibold hover:text-yellow-400 transition duration-300"
           >Miguel</a
         >
         <a
           routerLink="/lnunez"
-          class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+          class="text-white font-semibold hover:text-yellow-400 transition duration-300"
           >Leonardo
         </a>
       </div>
-
-      <!-- Botón menú móvil -->
-      <div class="flex items-center md:hidden">
-        <button
-          id="menu-btn"
-          class="text-gray-700 hover:text-blue-600 focus:outline-none"
-        >
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+      <!-- Botón móvil -->
+      <div class="md:hidden">
+        <button type="button" class="text-yellow-400 focus:outline-none">
+          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
