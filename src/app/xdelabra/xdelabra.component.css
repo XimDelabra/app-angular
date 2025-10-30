@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+.body{
+    background-color: rgb(14, 2, 58);
+    color: white;
+    text-align: center;
+}
+.name{
+    font-size: 100px;
+}
+
+.container{
+    padding: 20px;
+    height: 90vh;
+    border: 7px double rgb(145, 0, 0);
+}
+.especialidad, .gustos{
+    font-size: 70px;
+}
