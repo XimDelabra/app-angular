@@ -1,0 +1,50 @@
+<nav class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="#" class="text-2xl font-bold text-blue-600">Los 6tasticos</a>
+      </div>
+
+      <!-- Menú para pantallas grandes -->
+      <div class="hidden md:flex space-x-8 items-center">
+        <a routerLink="/xdelabra" class="text-gray-700 hover:text-blue-600"
+          >Ximena</a
+        >
+        <a routerLink="/yrodriguez" class="text-gray-700 hover:text-blue-600"
+          >Yahir</a
+        >
+        <a routerLink="/jsantiago" class="text-gray-700 hover:text-blue-600"
+          >Santiago</a
+        >
+        <a
+          routerLink="/lnunez"
+          class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+          >Leonardo
+        </a>
+      </div>
+
+      <!-- Botón menú móvil -->
+      <div class="flex items-center md:hidden">
+        <button
+          id="menu-btn"
+          class="text-gray-700 hover:text-blue-600 focus:outline-none"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
