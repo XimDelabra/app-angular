@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from '../components/shared/navbar/navbar';
+import { Miguel } from './miguel/miguel';
 
 @Component({
   selector: 'app-root',
-  imports: [ RouterOutlet, Navbar],
+  standalone: true,
+  imports: [RouterOutlet, Navbar, Miguel],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app-angular';
-}
+export class AppComponent { }
