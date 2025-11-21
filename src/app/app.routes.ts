@@ -5,6 +5,7 @@ import { XdelabraComponent } from './xdelabra/xdelabra.component';
 import { YrodriguezComponent } from './yrodriguez/yrodriguez.component';
 import { JsantiagoComponent } from './jsantiago/jsantiago.component';
 import { Miguel } from './miguel/miguel';
+import { Alberto } from './alberto/alberto';
 
 export const routes: Routes = [
     {
@@ -14,7 +15,7 @@ export const routes: Routes = [
     {
         path: 'lnunez',
         component: LnunezComponent
-      
+
     },
     {
         path: 'xdelabra',
@@ -31,6 +32,10 @@ export const routes: Routes = [
     {
         path:'miguel',
         component: Miguel
+    },
+    {
+        path:'alberto',
+        component: Alberto
     },
     {
         path: '**',
